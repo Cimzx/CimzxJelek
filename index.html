@@ -123,39 +123,243 @@ box-shadow:0 0 10px #a200ff;
 
 /* icon */
 
-.icon{
-font-size:20px;
-margin-right:12px;
-color:#c27cff;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber AI Landing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.link-left{
+body{
+font-family:'Poppins',sans-serif;
+background:#050507;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+body::before{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:#00ffd5;
+filter:blur(200px);
+top:-100px;
+left:-100px;
+opacity:0.3;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#ff00ff;
+filter:blur(200px);
+bottom:-100px;
+right:-100px;
+opacity:0.2;
+z-index:-1;
+}
+
+/* NAVBAR */
+nav{
 display:flex;
+justify-content:space-between;
+padding:20px 10%;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(12px);
+z-index:100;
+}
+
+nav h1{
+font-family:'Orbitron';
+color:#00ffd5;
+}
+
+nav button{
+padding:10px 25px;
+border:none;
+border-radius:8px;
+background:linear-gradient(45deg,#00ffd5,#00aaff);
+color:#000;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+nav button:hover{
+transform:scale(1.1);
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
 align-items:center;
+text-align:center;
+padding:20px;
 }
 
-.link-title{
-font-size:14px;
+.hero h1{
+font-size:60px;
+font-family:'Orbitron';
+background:linear-gradient(45deg,#00ffd5,#ff00ff);
+-webkit-background-clip:text;
+color:transparent;
+animation:fadeIn 2s ease;
 }
 
-.link-desc{
-font-size:11px;
-opacity:.7;
+.hero p{
+margin-top:20px;
+opacity:0.7;
+max-width:600px;
 }
 
-/* tag */
+.hero button{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#00ffd5,#ff00ff);
+color:#000;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 20px #00ffd5;
+transition:0.3s;
+}
 
-.tag{
-font-size:9px;
-padding:3px 8px;
+.hero button:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px #00ffd5;
+}
+
+/* FEATURES */
+.features{
+padding:100px 10%;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:25px;
+backdrop-filter:blur(15px);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,#00ffd5,transparent);
+top:-100%;
+left:0;
+transition:0.5s;
+}
+
+.card:hover::before{
+top:100%;
+}
+
+.card:hover{
+transform:translateY(-15px) scale(1.03);
+box-shadow:0 0 25px #00ffd5;
+}
+
+/* PRICING */
+.pricing{
+padding:100px 10%;
+text-align:center;
+}
+
+.price-wrap{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.price-card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+width:280px;
+backdrop-filter:blur(15px);
+transition:0.3s;
+}
+
+.price-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px #ff00ff;
+}
+
+.price-card h2{
+font-family:'Orbitron';
+}
+
+.price-card button{
+margin-top:20px;
+padding:10px 25px;
+border:none;
+border-radius:8px;
+background:#00ffd5;
+cursor:pointer;
+}
+
+/* FAQ */
+.faq{
+padding:100px 10%;
+}
+
+.faq-item{
+background:rgba(255,255,255,0.05);
+margin-bottom:15px;
+padding:20px;
 border-radius:10px;
-background:#7a2bff;
-margin-left:6px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.arrow{
-color:#c27cff;
-font-size:18px;
+.faq-item:hover{
+background:rgba(0,255,213,0.1);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px;
+opacity:0.5;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 </style>
@@ -163,80 +367,82 @@ font-size:18px;
 
 <body>
 
-<div class="container">
+<nav>
+<h1>CYBER AI</h1>
+<button>Login</button>
+</nav>
 
-<div class="profile">
+<section class="hero">
+<h1>AI That Feels <br> <span>Human</span></h1>
+<p>Generate newsletter, content, dan marketing otomatis dengan teknologi AI paling canggih.</p>
+<button>Start Now</button>
+</section>
 
-<img src="https://i.imgur.com/2yaf2wb.png">
+<section class="features">
+<h2>🚀 Features</h2>
+<div class="grid">
 
-<div class="title">𝐂𝐈𝐌𝐙𝐗 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</div>
-<div class="subtitle">CONTACT CIMZX OFFICIAL</div>
-
+<div class="card">
+<h3>⚡ AI Writer</h3>
+<p>Generate konten high-converting otomatis.</p>
 </div>
 
-<!-- 𝐐𝐫𝐢𝐬 𝐂𝐢𝐦𝐳𝐱𝐎𝐟𝐟𝐜 -->
-
-  <div class="section">
-
-<div class="section-title">𝐏𝐀𝐘𝐌𝐄𝐍𝐓</div>
-    
-  <a class="link" href="https://cdn.nekohime.site/file/XisfJoVp.png" target="_blank">
-
-<div class="link-left">
-<i class="fab fa-Qris icon"></i>
-
-<div>
-<div class="link-title">QRIS <span class="tag">PAYMENT</span></div>
-<div class="link-desc">QRIS CIMZX OFFICIAL</div>
-</div>
+<div class="card">
+<h3>🎨 Smart Design</h3>
+<p>Desain auto premium tanpa ribet.</p>
 </div>
 
-<div class="arrow">→</div>
-
-</a>
-  
-<!-- WHATSAPP/TELEGRAM -->
-
-<div class="section">
-
-<div class="section-title">𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏/𝐓𝐄𝐋𝐄𝐆𝐑𝐀𝐌</div>
-
-<a class="link" href="https://wa.me/639956428611" target="_blank">
-
-<div class="link-left">
-<i class="fab fa-whatsapp icon"></i>
-
-<div>
-<div class="link-title">WHATSAPP <span class="tag">DEVELOPER</span></div>
-<div class="link-desc">Chat kalo mau beli</div>
-</div>
+<div class="card">
+<h3>🧠 Multi AI</h3>
+<p>Research + copywriting + editing.</p>
 </div>
 
-<div class="arrow">→</div>
-
-</a>
-
-</div>
-
-
-<a class="link" href="https://t.me/CimzxOffc" target="_blank">
-
-<div class="link-left">
-<i class="fab fa-telegram icon"></i>
-
-<div>
-<div class="link-title">TELEGRAM <span class="tag">CONTACT</span></div>
-<div class="link-desc">Chat Telegram</div>
-</div>
-</div>
-
-<div class="arrow">→</div>
-
-</a>
-
+<div class="card">
+<h3>📊 Analytics</h3>
+<p>Lihat performa campaign real-time.</p>
 </div>
 
 </div>
+</section>
+
+<section class="pricing">
+<h2>💰 Pricing</h2>
+
+<div class="price-wrap">
+
+<div class="price-card">
+<h2>Starter</h2>
+<p>$49/month</p>
+<button>Buy</button>
+</div>
+
+<div class="price-card">
+<h2>Pro</h2>
+<p>$99/month</p>
+<button>Buy</button>
+</div>
+
+<div class="price-card">
+<h2>Ultimate</h2>
+<p>$199/month</p>
+<button>Buy</button>
+</div>
+
+</div>
+</section>
+
+<section class="faq">
+<h2>❓ FAQ</h2>
+
+<div class="faq-item">Apakah ini cocok untuk pemula?</div>
+<div class="faq-item">Bisa dipakai tanpa coding?</div>
+<div class="faq-item">Support AI otomatis?</div>
+
+</section>
+
+<footer>
+© 2026 CYBER AI - NEXT LEVEL WEBSITE
+</footer>
 
 </body>
 </html>
